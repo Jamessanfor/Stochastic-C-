@@ -11,3 +11,5 @@ to do Spectral analysis use techniques such as Fourier analysis or wavelet analy
 
 to do nonlinear analysis: Use techniques such as chaos theory or fractal analysis to identify patterns in nonlinear systems.
 
+
+
