@@ -51,43 +51,39 @@ public:
 	}
 	
 
-	void get_data(vector<vector<int>> mp,int dir) {
-		
-		if (dir==0) {
-		for (int i = 0; i < sensor_dat.size(); i++) {
-			for (int j = 0; j < sensor_dat[i].size(); j++) {
-					sensor_dat[i][j] = mp[x+i+1][y+j-i];
+	void get_data(vector<vector<int>>& mp, int dir ) {
+		if (dir == 0) {
+			for (int i = 0; i < sensor_dat.size(); i++) {
+				for (int j = 0; j < sensor_dat[i].size(); j++) {
+					sensor_dat[i][j] = mp[x + i + 1][y + j - i];
 				}
 			}
 		}
 		else if (dir == 1) {
-		for (int i = 0; i < sensor_dat.size(); i++) {
-			for (int j = 0; j < sensor_dat[i].size(); j++) {
-					sensor_dat[i][j] = mp[x-i-1][y+j-i];
+			for (int i = 0; i < sensor_dat.size(); i++) {
+				for (int j = 0; j < sensor_dat[i].size(); j++) {
+					sensor_dat[i][j] = mp[x - i - 1][y + j - i];
 				}
 			}
 		}
-		else if (dir == 2  /* || dir == 3 */ ) {
-		for (int i = 0; i < sensor_dat.size(); i++) {
-			for (int j = 0; j < sensor_dat[i].size(); j++) {
-					sensor_dat[i][j] = mp[(x+i-j)] [(y-j-1)];
-					
-			}
-			reverse(sensor_dat[i].begin(), sensor_dat[i].end());
-
-		}
-
-		}
-		else{
-		for (int i = 0; i < sensor_dat.size(); i++) {
-			for (int j = 0; j < sensor_dat[i].size(); j++) {
-
-					sensor_dat[i][j] = mp[x + i -j][y - j +1];
+		else if (dir == 2) {
+			for (int i = 0; i < sensor_dat.size(); i++) {
+				for (int j = 0; j < sensor_dat[i].size(); j++) {
+					mp[x + i - j][y - j - 1] = 5;
+					sensor_dat[i][j] = mp[x + i - j][y - j - 1];
+				}
+				reverse(sensor_dat[i].begin(), sensor_dat[i].end());
 			}
 		}
-		
+		else {
+			for (int i = 0; i < sensor_dat.size(); i++) {
+				for (int j = 0; j < sensor_dat[i].size(); j++) {
+					sensor_dat[i][j] = mp[x + i - j][y - j + 1];
+				}
+			}
 		}
 	}
+
 	void print_sensor_dat() {
 		string spc = "       ";
 

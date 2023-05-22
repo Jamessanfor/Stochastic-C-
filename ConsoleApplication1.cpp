@@ -35,6 +35,11 @@ int main()
 	p3.print_sensor_dat();
 	p4.print_sensor_dat();
 
+
+	R.map_print();
+
+
+
 		return 0;
 }
 
